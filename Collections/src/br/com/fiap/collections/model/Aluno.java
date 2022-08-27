@@ -1,6 +1,5 @@
 package br.com.fiap.collections.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Aluno {
@@ -8,15 +7,24 @@ public class Aluno {
 	private String nome;
 	private int rm;
 	private int idade;
-	private List<Double> nota = new ArrayList<>();
+	private List<Double> notas;
 
 	public Aluno() {}
 	
-	public Aluno(String nome, int rm, int idade, List<Double> nota) {
+	public Aluno(String nome, int rm, int idade, List<Double> notas) {
 		this.nome = nome;
 		this.rm = rm;
 		this.idade = idade;
-		this.nota = nota;
+		this.notas = notas;
+	}
+	
+	public double retornarmedia() {
+		double soma = 0;
+		for (double nota: notas) {
+			soma += nota;
+		}
+		double media = soma / notas.size();
+		return media;
 	}
 
 	public String getNome() {
@@ -44,11 +52,11 @@ public class Aluno {
 	}
 
 	public List<Double> getNota() {
-		return nota;
+		return notas;
 	}
 
-	public void setNota(List<Double> nota) {
-		this.nota = nota;
+	public void setNota(List<Double> notas) {
+		this.notas = notas;
 	}
 
 }

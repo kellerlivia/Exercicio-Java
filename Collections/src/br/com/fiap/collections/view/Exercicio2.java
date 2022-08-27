@@ -12,7 +12,7 @@ public class Exercicio2 {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		AlunoDao dao = new AlunoDao();		
+		AlunoDao dao = new AlunoDao();
 
 		int continuar;
 		do {
@@ -27,9 +27,8 @@ public class Exercicio2 {
 			System.out.println("Digite o nota 2: ");
 			double nota2 = sc.nextDouble();
 			
-			Double[] vetor = new Double[] {nota1, nota2};
 			List<Double> notas = Arrays.asList(new Double[] {nota1, nota2});
-					
+			
 			Aluno aluno = new Aluno(nome, rm, idade, notas);
 			
 			
@@ -40,7 +39,11 @@ public class Exercicio2 {
 		} while(continuar == 1);
 		
 		System.out.println("Total de alunos " + dao.listar().size());
-		
+		System.out.println("A média de notas é: " + dao.calcularMediaGeral());
+		System.out.println("A maior idade é: " + dao.retornarMaiorIdade());
+		System.out.println("A menor idade é: " + dao.retornarMenorIdade());
+		System.out.println("A média das idades é: " + dao.calcularIdadeMedia());
+
 		sc.close();
 
 	}
